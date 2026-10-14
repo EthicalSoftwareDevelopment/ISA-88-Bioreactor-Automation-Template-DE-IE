@@ -1,0 +1,1118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://www.plcopen.org/xml/tc6_0201" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:ns1="http://www.plcopen.org/xml/tc6_0201">
+  <fileHeader companyName="Unknown" productName="Unnamed" productVersion="1" creationDateTime="2026-10-01T16:08:17"/>
+  <contentHeader name="Unnamed" modificationDateTime="2026-10-01T16:08:17">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="16" y="16"/>
+      </fbd>
+      <ld>
+        <scaling x="16" y="16"/>
+      </ld>
+      <sfc>
+        <scaling x="16" y="16"/>
+      </sfc>
+    </coordinateInfo>
+  </contentHeader>
+  <types>
+    <dataTypes/>
+    <pous>
+      <pou name="TankCycle_FB_LD" pouType="functionBlock">
+        <interface>
+          <localVars>
+            <variable name="Cycle_Active">
+              <type>
+                <BOOL/>
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE"/>
+              </initialValue>
+            </variable>
+            <variable name="Fill_Complete">
+              <type>
+                <BOOL/>
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE"/>
+              </initialValue>
+            </variable>
+            <variable name="Mix_Complete">
+              <type>
+                <BOOL/>
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE"/>
+              </initialValue>
+            </variable>
+            <variable name="Heat_Complete">
+              <type>
+                <BOOL/>
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE"/>
+              </initialValue>
+            </variable>
+            <variable name="Discharge_Complete">
+              <type>
+                <BOOL/>
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE"/>
+              </initialValue>
+            </variable>
+            <variable name="T1_Cycle_Complete">
+              <type>
+                <BOOL/>
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE"/>
+              </initialValue>
+            </variable>
+            <variable name="T1_Temp_Setpoint_AT">
+              <type>
+                <INT/>
+              </type>
+              <initialValue>
+                <simpleValue value="60"/>
+              </initialValue>
+            </variable>
+            <variable name="T1_Level_High">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Start_Cycle">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="T1_Valve_Inlet">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+          </localVars>
+        </interface>
+        <body>
+          <LD>
+            <leftPowerRail localId="5206388" width="3" height="40">
+              <position x="0" y="30"/>
+              <connectionPointOut formalParameter="">
+                <relPosition x="3" y="20"/>
+              </connectionPointOut>
+            </leftPowerRail>
+            <leftPowerRail localId="5820521" width="3" height="40">
+              <position x="0" y="150"/>
+              <connectionPointOut formalParameter="">
+                <relPosition x="3" y="20"/>
+              </connectionPointOut>
+            </leftPowerRail>
+            <leftPowerRail localId="3227987" width="3" height="40">
+              <position x="0" y="324"/>
+              <connectionPointOut formalParameter="">
+                <relPosition x="3" y="20"/>
+              </connectionPointOut>
+            </leftPowerRail>
+            <leftPowerRail localId="8692038" width="3" height="40">
+              <position x="0" y="444"/>
+              <connectionPointOut formalParameter="">
+                <relPosition x="3" y="20"/>
+              </connectionPointOut>
+            </leftPowerRail>
+            <leftPowerRail localId="353767" width="3" height="40">
+              <position x="0" y="564"/>
+              <connectionPointOut formalParameter="">
+                <relPosition x="3" y="20"/>
+              </connectionPointOut>
+            </leftPowerRail>
+            <leftPowerRail localId="8949908" width="3" height="40">
+              <position x="0" y="778"/>
+              <connectionPointOut formalParameter="">
+                <relPosition x="3" y="20"/>
+              </connectionPointOut>
+            </leftPowerRail>
+            <leftPowerRail localId="7797030" width="3" height="40">
+              <position x="0" y="898"/>
+              <connectionPointOut formalParameter="">
+                <relPosition x="3" y="20"/>
+              </connectionPointOut>
+            </leftPowerRail>
+            <leftPowerRail localId="10171087" width="3" height="40">
+              <position x="0" y="1018"/>
+              <connectionPointOut formalParameter="">
+                <relPosition x="3" y="20"/>
+              </connectionPointOut>
+            </leftPowerRail>
+            <rightPowerRail localId="9320661" width="3" height="40">
+              <position x="434" y="30"/>
+              <connectionPointIn>
+                <relPosition x="3" y="20"/>
+                <connection refLocalId="925256" formalParameter="output">
+                  <position x="297" y="50"/>
+                  <position x="324" y="50"/>
+                </connection>
+              </connectionPointIn>
+            </rightPowerRail>
+            <rightPowerRail localId="4526841" width="3" height="40">
+              <position x="442" y="150"/>
+              <connectionPointIn>
+                <relPosition x="3" y="20"/>
+                <connection refLocalId="5710181" formalParameter="output">
+                  <position x="297" y="170"/>
+                  <position x="332" y="170"/>
+                </connection>
+              </connectionPointIn>
+            </rightPowerRail>
+            <rightPowerRail localId="6299769" width="3" height="40">
+              <position x="434" y="324"/>
+              <connectionPointIn>
+                <relPosition x="3" y="20"/>
+                <connection refLocalId="8293898" formalParameter="output">
+                  <position x="297" y="344"/>
+                  <position x="324" y="344"/>
+                </connection>
+              </connectionPointIn>
+            </rightPowerRail>
+            <rightPowerRail localId="7049284" width="3" height="40">
+              <position x="434" y="444"/>
+              <connectionPointIn>
+                <relPosition x="3" y="20"/>
+                <connection refLocalId="4334255" formalParameter="output">
+                  <position x="297" y="464"/>
+                  <position x="324" y="464"/>
+                </connection>
+              </connectionPointIn>
+            </rightPowerRail>
+            <rightPowerRail localId="2083167" width="3" height="40">
+              <position x="764" y="564"/>
+              <connectionPointIn>
+                <relPosition x="3" y="20"/>
+                <connection refLocalId="6032013" formalParameter="ENO">
+                  <position x="297" y="584"/>
+                  <position x="461" y="584"/>
+                </connection>
+                <connection refLocalId="5646865" formalParameter="output">
+                  <position x="297" y="584"/>
+                  <position x="654" y="664"/>
+                </connection>
+              </connectionPointIn>
+            </rightPowerRail>
+            <rightPowerRail localId="2006546" width="3" height="40">
+              <position x="434" y="778"/>
+              <connectionPointIn>
+                <relPosition x="3" y="20"/>
+                <connection refLocalId="9853389" formalParameter="output">
+                  <position x="297" y="798"/>
+                  <position x="324" y="798"/>
+                </connection>
+              </connectionPointIn>
+            </rightPowerRail>
+            <rightPowerRail localId="9516588" width="3" height="40">
+              <position x="320" y="898"/>
+              <connectionPointIn>
+                <relPosition x="3" y="20"/>
+                <connection refLocalId="9128465" formalParameter="output">
+                  <position x="297" y="918"/>
+                  <position x="210" y="918"/>
+                </connection>
+              </connectionPointIn>
+            </rightPowerRail>
+            <rightPowerRail localId="7530738" width="3" height="40">
+              <position x="764" y="1018"/>
+              <connectionPointIn>
+                <relPosition x="3" y="20"/>
+                <connection refLocalId="1805846" formalParameter="ENO">
+                  <position x="297" y="1038"/>
+                  <position x="461" y="1038"/>
+                </connection>
+                <connection refLocalId="8391620" formalParameter="output">
+                  <position x="297" y="1038"/>
+                  <position x="654" y="1118"/>
+                </connection>
+              </connectionPointIn>
+            </rightPowerRail>
+            <block localId="6032013" typeName="GT" width="90" height="180" executionOrderId="0">
+              <position x="371" y="548"/>
+              <inputVariables>
+                <variable formalParameter="EN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="36"/>
+                    <connection refLocalId="6506627" formalParameter="output">
+                      <position x="371" y="584"/>
+                      <position x="206" y="584"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN1">
+                  <connectionPointIn>
+                    <relPosition x="0" y="116"/>
+                    <connection refLocalId="4703209">
+                      <position x="371" y="664"/>
+                      <position x="421" y="664"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN2">
+                  <connectionPointIn>
+                    <relPosition x="0" y="156"/>
+                    <connection refLocalId="9719344">
+                      <position x="371" y="704"/>
+                      <position x="421" y="704"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="ENO">
+                  <connectionPointOut>
+                    <relPosition x="90" y="36"/>
+                  </connectionPointOut>
+                </variable>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="90" y="116"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <block localId="1805846" typeName="GT" width="90" height="180" executionOrderId="0">
+              <position x="371" y="1002"/>
+              <inputVariables>
+                <variable formalParameter="EN">
+                  <connectionPointIn>
+                    <relPosition x="0" y="36"/>
+                    <connection refLocalId="516642" formalParameter="output">
+                      <position x="371" y="1038"/>
+                      <position x="206" y="1038"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN1">
+                  <connectionPointIn>
+                    <relPosition x="0" y="116"/>
+                    <connection refLocalId="8098592">
+                      <position x="371" y="1118"/>
+                      <position x="421" y="1118"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+                <variable formalParameter="IN2">
+                  <connectionPointIn>
+                    <relPosition x="0" y="156"/>
+                    <connection refLocalId="9143157">
+                      <position x="371" y="1158"/>
+                      <position x="421" y="1158"/>
+                    </connection>
+                  </connectionPointIn>
+                </variable>
+              </inputVariables>
+              <inOutVariables/>
+              <outputVariables>
+                <variable formalParameter="ENO">
+                  <connectionPointOut>
+                    <relPosition x="90" y="36"/>
+                  </connectionPointOut>
+                </variable>
+                <variable formalParameter="OUT">
+                  <connectionPointOut>
+                    <relPosition x="90" y="116"/>
+                  </connectionPointOut>
+                </variable>
+              </outputVariables>
+            </block>
+            <contact localId="3196332" negated="false" width="24" height="24">
+              <position x="68" y="38"/>
+              <connectionPointIn>
+                <relPosition x="0" y="12"/>
+                <connection refLocalId="5206388" formalParameter="left-rail">
+                  <position x="68" y="50"/>
+                  <position x="3" y="50"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="24" y="12"/>
+              </connectionPointOut>
+              <variable>Start_Cycle</variable>
+            </contact>
+            <contact localId="4932728" negated="true" width="24" height="24">
+              <position x="182" y="38"/>
+              <connectionPointIn>
+                <relPosition x="0" y="12"/>
+                <connection refLocalId="3196332" formalParameter="output">
+                  <position x="182" y="50"/>
+                  <position x="92" y="50"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="24" y="12"/>
+              </connectionPointOut>
+              <variable>T1_Level_High</variable>
+            </contact>
+            <contact localId="8004194" negated="false" width="24" height="24">
+              <position x="72" y="158"/>
+              <connectionPointIn>
+                <relPosition x="0" y="12"/>
+                <connection refLocalId="5820521" formalParameter="left-rail">
+                  <position x="72" y="170"/>
+                  <position x="3" y="170"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="24" y="12"/>
+              </connectionPointOut>
+              <variable>Start_Cycle_AT_%IX0.0</variable>
+            </contact>
+            <contact localId="2625880" negated="false" width="24" height="24">
+              <position x="72" y="250"/>
+              <connectionPointIn>
+                <relPosition x="0" y="12"/>
+                <connection refLocalId="5820521" formalParameter="left-rail">
+                  <position x="72" y="262"/>
+                  <position x="27" y="262"/>
+                  <position x="27" y="170"/>
+                  <position x="3" y="170"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="24" y="12"/>
+              </connectionPointOut>
+              <variable>Cycle_Active</variable>
+            </contact>
+            <contact localId="7831096" negated="false" width="24" height="24">
+              <position x="190" y="158"/>
+              <connectionPointIn>
+                <relPosition x="0" y="12"/>
+                <connection refLocalId="8004194" formalParameter="output">
+                  <position x="190" y="170"/>
+                  <position x="96" y="170"/>
+                </connection>
+                <connection refLocalId="2625880" formalParameter="output">
+                  <position x="190" y="170"/>
+                  <position x="145" y="170"/>
+                  <position x="145" y="262"/>
+                  <position x="96" y="262"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="24" y="12"/>
+              </connectionPointOut>
+              <variable>Stop_Cycle_AT_%IX0.1</variable>
+            </contact>
+            <contact localId="3240942" negated="false" width="24" height="24">
+              <position x="68" y="332"/>
+              <connectionPointIn>
+                <relPosition x="0" y="12"/>
+                <connection refLocalId="3227987" formalParameter="left-rail">
+                  <position x="68" y="344"/>
+                  <position x="3" y="344"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="24" y="12"/>
+              </connectionPointOut>
+              <variable>Start_Cycle   _AT_%IX0.0</variable>
+            </contact>
+            <contact localId="659172" negated="true" width="24" height="24">
+              <position x="182" y="332"/>
+              <connectionPointIn>
+                <relPosition x="0" y="12"/>
+                <connection refLocalId="3240942" formalParameter="output">
+                  <position x="182" y="344"/>
+                  <position x="92" y="344"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="24" y="12"/>
+              </connectionPointOut>
+              <variable>T1_Level_high_AT_%IX0.2</variable>
+            </contact>
+            <contact localId="7461556" negated="false" width="24" height="24">
+              <position x="68" y="452"/>
+              <connectionPointIn>
+                <relPosition x="0" y="12"/>
+                <connection refLocalId="8692038" formalParameter="left-rail">
+                  <position x="68" y="464"/>
+                  <position x="3" y="464"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="24" y="12"/>
+              </connectionPointOut>
+              <variable>Cycle_Active</variable>
+            </contact>
+            <contact localId="10873619" negated="false" width="24" height="24">
+              <position x="182" y="452"/>
+              <connectionPointIn>
+                <relPosition x="0" y="12"/>
+                <connection refLocalId="7461556" formalParameter="output">
+                  <position x="182" y="464"/>
+                  <position x="92" y="464"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="24" y="12"/>
+              </connectionPointOut>
+              <variable>Fill_Complete</variable>
+            </contact>
+            <contact localId="5843612" negated="false" width="24" height="24">
+              <position x="68" y="572"/>
+              <connectionPointIn>
+                <relPosition x="0" y="12"/>
+                <connection refLocalId="353767" formalParameter="left-rail">
+                  <position x="68" y="584"/>
+                  <position x="3" y="584"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="24" y="12"/>
+              </connectionPointOut>
+              <variable>Cycle_Active</variable>
+            </contact>
+            <contact localId="6506627" negated="false" width="24" height="24">
+              <position x="182" y="572"/>
+              <connectionPointIn>
+                <relPosition x="0" y="12"/>
+                <connection refLocalId="5843612" formalParameter="output">
+                  <position x="182" y="584"/>
+                  <position x="92" y="584"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="24" y="12"/>
+              </connectionPointOut>
+              <variable>Mix_Complete</variable>
+            </contact>
+            <contact localId="9337256" negated="false" width="24" height="24">
+              <position x="68" y="786"/>
+              <connectionPointIn>
+                <relPosition x="0" y="12"/>
+                <connection refLocalId="8949908" formalParameter="left-rail">
+                  <position x="68" y="798"/>
+                  <position x="3" y="798"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="24" y="12"/>
+              </connectionPointOut>
+              <variable>Heat_Complete</variable>
+            </contact>
+            <contact localId="9445017" negated="true" width="24" height="24">
+              <position x="182" y="786"/>
+              <connectionPointIn>
+                <relPosition x="0" y="12"/>
+                <connection refLocalId="9337256" formalParameter="output">
+                  <position x="182" y="798"/>
+                  <position x="92" y="798"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="24" y="12"/>
+              </connectionPointOut>
+              <variable>T1_Level_Low    AT %IX0.3</variable>
+            </contact>
+            <contact localId="10036390" negated="false" width="24" height="24">
+              <position x="68" y="906"/>
+              <connectionPointIn>
+                <relPosition x="0" y="12"/>
+                <connection refLocalId="7797030" formalParameter="left-rail">
+                  <position x="68" y="918"/>
+                  <position x="3" y="918"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="24" y="12"/>
+              </connectionPointOut>
+              <variable>Discharge_Complete</variable>
+            </contact>
+            <contact localId="3674994" negated="false" width="24" height="24">
+              <position x="68" y="1026"/>
+              <connectionPointIn>
+                <relPosition x="0" y="12"/>
+                <connection refLocalId="10171087" formalParameter="left-rail">
+                  <position x="68" y="1038"/>
+                  <position x="3" y="1038"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="24" y="12"/>
+              </connectionPointOut>
+              <variable>Cycle_Active</variable>
+            </contact>
+            <contact localId="516642" negated="false" width="24" height="24">
+              <position x="182" y="1026"/>
+              <connectionPointIn>
+                <relPosition x="0" y="12"/>
+                <connection refLocalId="3674994" formalParameter="output">
+                  <position x="182" y="1038"/>
+                  <position x="92" y="1038"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="24" y="12"/>
+              </connectionPointOut>
+              <variable>T1_Mix_Complete_AT_%IX0.1</variable>
+            </contact>
+            <coil localId="925256" negated="false" width="28" height="24">
+              <position x="296" y="38"/>
+              <connectionPointIn>
+                <relPosition x="0" y="12"/>
+                <connection refLocalId="4932728" formalParameter="output">
+                  <position x="296" y="50"/>
+                  <position x="206" y="50"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="28" y="12"/>
+              </connectionPointOut>
+              <variable>T1_Valve_Inlet</variable>
+            </coil>
+            <coil localId="5710181" negated="false" width="28" height="24">
+              <position x="304" y="158"/>
+              <connectionPointIn>
+                <relPosition x="0" y="12"/>
+                <connection refLocalId="7831096" formalParameter="output">
+                  <position x="304" y="170"/>
+                  <position x="214" y="170"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="28" y="12"/>
+              </connectionPointOut>
+              <variable>Coil_Active_%QX0.0</variable>
+            </coil>
+            <coil localId="8293898" negated="false" width="28" height="24">
+              <position x="296" y="332"/>
+              <connectionPointIn>
+                <relPosition x="0" y="12"/>
+                <connection refLocalId="659172" formalParameter="output">
+                  <position x="296" y="344"/>
+                  <position x="206" y="344"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="28" y="12"/>
+              </connectionPointOut>
+              <variable>T1_Valve_Inlet_AT_%QX0.0</variable>
+            </coil>
+            <coil localId="4334255" negated="false" width="28" height="24">
+              <position x="296" y="452"/>
+              <connectionPointIn>
+                <relPosition x="0" y="12"/>
+                <connection refLocalId="10873619" formalParameter="output">
+                  <position x="296" y="464"/>
+                  <position x="206" y="464"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="28" y="12"/>
+              </connectionPointOut>
+              <variable>T1_Mixer_Motor AT %QX0.1 </variable>
+            </coil>
+            <coil localId="5646865" negated="false" width="28" height="24">
+              <position x="626" y="652"/>
+              <connectionPointIn>
+                <relPosition x="0" y="12"/>
+                <connection refLocalId="6032013" formalParameter="">
+                  <position x="626" y="664"/>
+                  <position x="461" y="584"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="28" y="12"/>
+              </connectionPointOut>
+              <variable>T1_Heater AT %QX0.2</variable>
+            </coil>
+            <coil localId="9853389" negated="false" width="28" height="24">
+              <position x="296" y="786"/>
+              <connectionPointIn>
+                <relPosition x="0" y="12"/>
+                <connection refLocalId="9445017" formalParameter="output">
+                  <position x="296" y="798"/>
+                  <position x="206" y="798"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="28" y="12"/>
+              </connectionPointOut>
+              <variable>T1_Valve_Outlet AT %QX0.3</variable>
+            </coil>
+            <coil localId="9128465" negated="false" width="28" height="24">
+              <position x="182" y="906"/>
+              <connectionPointIn>
+                <relPosition x="0" y="12"/>
+                <connection refLocalId="10036390" formalParameter="output">
+                  <position x="182" y="918"/>
+                  <position x="92" y="918"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="28" y="12"/>
+              </connectionPointOut>
+              <variable>T1_Cycle_Complete</variable>
+            </coil>
+            <coil localId="8391620" negated="false" width="28" height="24">
+              <position x="626" y="1106"/>
+              <connectionPointIn>
+                <relPosition x="0" y="12"/>
+                <connection refLocalId="1805846" formalParameter="">
+                  <position x="626" y="1118"/>
+                  <position x="461" y="1038"/>
+                </connection>
+              </connectionPointIn>
+              <connectionPointOut>
+                <relPosition x="28" y="12"/>
+              </connectionPointOut>
+              <variable>T1_Temp_Alarm AT %QX0.3</variable>
+            </coil>
+            <inVariable localId="4703209" width="80" height="32" negated="false">
+              <position x="261" y="648"/>
+              <connectionPointOut>
+                <relPosition x="80" y="16"/>
+              </connectionPointOut>
+              <expression>T1_Temp_Sensor</expression>
+            </inVariable>
+            <inVariable localId="9719344" width="80" height="32" negated="false">
+              <position x="261" y="688"/>
+              <connectionPointOut>
+                <relPosition x="80" y="16"/>
+              </connectionPointOut>
+              <expression>T1_Temp_Setpoint</expression>
+            </inVariable>
+            <inVariable localId="8098592" width="80" height="32" negated="false">
+              <position x="261" y="1102"/>
+              <connectionPointOut>
+                <relPosition x="80" y="16"/>
+              </connectionPointOut>
+              <expression>T1_Temp_Sensor_AT_%IW0</expression>
+            </inVariable>
+            <inVariable localId="9143157" width="80" height="32" negated="false">
+              <position x="261" y="1142"/>
+              <connectionPointOut>
+                <relPosition x="80" y="16"/>
+              </connectionPointOut>
+              <expression>T1_Temp_Setpoint</expression>
+            </inVariable>
+          </LD>
+        </body>
+        <documentation>
+          <xhtml:p><![CDATA[Start_Cycle AND NOT Tn_Level_High → Coil: Tn_Valve_Inlet]]></xhtml:p>
+        </documentation>
+      </pou>
+      <pou name="FillStage_FB_ST" pouType="functionBlock">
+        <interface>
+          <inputVars>
+            <variable name="Cycle_Active">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="T1_Level_High">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+          </inputVars>
+          <outputVars>
+            <variable name="T1_Valve_Inlet">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Fill_Complete">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+          </outputVars>
+        </interface>
+        <body>
+          <ST>
+            <xhtml:p><![CDATA[FUNCTION_BLOCK FillStage_FB_ST]]></xhtml:p>
+          </ST>
+        </body>
+        <documentation>
+          <xhtml:p><![CDATA[ ]]></xhtml:p>
+        </documentation>
+      </pou>
+      <pou name="MixStage_FB_ST" pouType="functionBlock">
+        <interface>
+          <inputVars>
+            <variable name="Cycle_Active">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Fill_Complete">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+          </inputVars>
+          <outputVars>
+            <variable name="Mixer_Motor">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="T1_Mix_Complete">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+          </outputVars>
+        </interface>
+        <body>
+          <ST>
+            <xhtml:p><![CDATA[// Body logic
+IF Cycle_Active AND Fill_Complete THEN
+    Mix_Complete := TRUE;
+ELSE
+    Mix_Complete := FALSE;
+END_IF;]]></xhtml:p>
+          </ST>
+        </body>
+        <documentation>
+          <xhtml:p><![CDATA[ ]]></xhtml:p>
+        </documentation>
+      </pou>
+      <pou name="HeatStage_FB_ST" pouType="functionBlock">
+        <interface>
+          <inputVars>
+            <variable name="Cycle_Active">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="T1_Mix_Complete">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="T1_Temp_Sensor">
+              <type>
+                <INT/>
+              </type>
+            </variable>
+            <variable name="T1_Temp_Setpoint">
+              <type>
+                <INT/>
+              </type>
+            </variable>
+          </inputVars>
+          <outputVars>
+            <variable name="T1_Heater">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="T1_Temp_Alarm">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Heat_Complete">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+          </outputVars>
+        </interface>
+        <body>
+          <ST>
+            <xhtml:p><![CDATA[IF Cycle_Active AND T1_Mix_Complete AND (T1_Temp_Sensor < T1_Temp_Setpoint) THEN
+    T1_Heater := TRUE;
+ELSE
+    T1_Heater := FALSE;
+END_IF;
+
+IF Cycle_Active AND T1_Mix_Complete AND (T1_Temp_Sensor > T1_Temp_Setpoint) THEN
+    T1_Temp_Alarm := TRUE;
+ELSE
+    T1_Temp_Alarm := FALSE;
+END_IF;
+
+IF Cycle_Active AND T1_Mix_Complete AND (T1_Temp_Sensor >= T1_Temp_Setpoint) THEN
+    Heat_Complete := TRUE;
+END_IF;
+]]></xhtml:p>
+          </ST>
+        </body>
+        <documentation>
+          <xhtml:p><![CDATA[ ]]></xhtml:p>
+        </documentation>
+      </pou>
+      <pou name="DischargeStage_FB_ST" pouType="functionBlock">
+        <interface>
+          <inputVars>
+            <variable name="Cycle_Active">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Heat_Complete">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+          </inputVars>
+          <outputVars>
+            <variable name="T1_Valve_Outlet">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Discharge_Complete">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+          </outputVars>
+        </interface>
+        <body>
+          <ST>
+            <xhtml:p><![CDATA[IF Cycle_Active AND Heat_Complete THEN
+    T1_Valve_Outlet := TRUE;
+ELSE
+    T1_Valve_Outlet := FALSE;
+END_IF;
+
+IF Cycle_Active AND Heat_Complete THEN
+    Discharge_Complete := TRUE;
+END_IF;
+]]></xhtml:p>
+          </ST>
+        </body>
+        <documentation>
+          <xhtml:p><![CDATA[ ]]></xhtml:p>
+        </documentation>
+      </pou>
+      <pou name="CycleComplete_FB_ST" pouType="functionBlock">
+        <interface>
+          <inputVars>
+            <variable name="Cycle_Active">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Fill_Complete">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Mix_Complete">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Heat_Complete">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+            <variable name="Discharge_Complete">
+              <type>
+                <BOOL/>
+              </type>
+            </variable>
+          </inputVars>
+          <outputVars>
+            <variable name="T1_Cycle_Complete">
+              <type>
+                <BOOL/>
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE"/>
+              </initialValue>
+            </variable>
+            <variable name="Cycle_Reset">
+              <type>
+                <BOOL/>
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE"/>
+              </initialValue>
+            </variable>
+          </outputVars>
+        </interface>
+        <body>
+          <ST>
+            <xhtml:p><![CDATA[IF Cycle_Active AND Discharge_Complete THEN
+    T1_Cycle_Complete := TRUE;
+    Cycle_Active := FALSE;   // reset latch
+END_IF;
+]]></xhtml:p>
+          </ST>
+        </body>
+        <documentation>
+          <xhtml:p><![CDATA[ ]]></xhtml:p>
+        </documentation>
+      </pou>
+      <pou name="MAIN_ST" pouType="program">
+        <interface>
+          <localVars>
+            <variable name="FillStage">
+              <type>
+                <derived name="FillStage_FB_ST"/>
+              </type>
+            </variable>
+            <variable name="MixStage">
+              <type>
+                <derived name="MixStage_FB_ST"/>
+              </type>
+            </variable>
+            <variable name="HeatStage">
+              <type>
+                <derived name="HeatStage_FB_ST"/>
+              </type>
+            </variable>
+            <variable name="DischargeStage">
+              <type>
+                <derived name="DischargeStage_FB_ST"/>
+              </type>
+            </variable>
+            <variable name="CycleComplete">
+              <type>
+                <derived name="CycleComplete_FB_ST"/>
+              </type>
+            </variable>
+          </localVars>
+        </interface>
+        <body>
+          <ST>
+            <xhtml:p><![CDATA[PROGRAM MAIN_ST
+TankCycle(
+    Start_Cycle     := GV_TankFarm.Start_Cycle,
+    Stop_Cycle      := GV_TankFarm.Stop_Cycle,
+    T1_Level_High   := GV_TankFarm.T1_Level_High,
+    T1_Temp_Sensor  := GV_TankFarm.T1_Temp_Sensor
+);
+
+FillStage(
+    Cycle_Active   := TankCycle_FB_ST.Cycle_Active,
+    T1_Level_High  := GV_TankFarm.T1_Level_High
+);
+
+// … other FB calls …
+
+IF CycleComplete.Cycle_Reset THEN
+    TankCycle.Cycle_Active := FALSE;
+END_IF;
+
+END_PROGRAM]]></xhtml:p>
+          </ST>
+        </body>
+        <documentation>
+          <xhtml:p><![CDATA[ ]]></xhtml:p>
+        </documentation>
+      </pou>
+      <pou name="TankCycle_FB_ST" pouType="functionBlock">
+        <interface>
+          <inputVars>
+            <variable name="Start_Cycle">
+              <type>
+                <BOOL/>
+              </type>
+              <documentation>
+                <xhtml:p><![CDATA[trigger to start cycle]]></xhtml:p>
+              </documentation>
+            </variable>
+            <variable name="Stop_Cycle">
+              <type>
+                <BOOL/>
+              </type>
+              <documentation>
+                <xhtml:p><![CDATA[trigger to stop cycle]]></xhtml:p>
+              </documentation>
+            </variable>
+            <variable name="T1_Level_High">
+              <type>
+                <BOOL/>
+              </type>
+              <documentation>
+                <xhtml:p><![CDATA[sensor input]]></xhtml:p>
+              </documentation>
+            </variable>
+            <variable name="T1_Temp_Sensor">
+              <type>
+                <INT/>
+              </type>
+              <documentation>
+                <xhtml:p><![CDATA[temperature input]]></xhtml:p>
+              </documentation>
+            </variable>
+          </inputVars>
+        </interface>
+        <body>
+          <ST>
+            <xhtml:p><![CDATA[FUNCTION_BLOCK TankCycle_FB_ST
+VAR_INPUT
+    Start_Cycle     : BOOL;   // trigger to start cycle
+    Stop_Cycle      : BOOL;   // trigger to stop cycle
+    T1_Level_High   : BOOL;   // sensor input
+    T1_Temp_Sensor  : INT;    // temperature input
+END_VAR
+
+VAR_OUTPUT
+    Cycle_Active    : BOOL := FALSE; // latch for active cycle
+    T1_Temp_Setpoint: INT := 60;     // default setpoint
+END_VAR
+
+// Body logic
+IF Stop_Cycle THEN
+    Cycle_Active := FALSE;
+ELSIF Start_Cycle THEN
+    Cycle_Active := TRUE;
+END_IF;
+
+// Example: reset if tank is full
+IF T1_Level_High AND Cycle_Active THEN
+    Cycle_Active := FALSE;
+END_IF;
+
+END_FUNCTION_BLOCK]]></xhtml:p>
+          </ST>
+        </body>
+        <documentation>
+          <xhtml:p><![CDATA[ ]]></xhtml:p>
+        </documentation>
+      </pou>
+    </pous>
+  </types>
+  <instances>
+    <configurations>
+      <configuration name="Config0">
+        <resource name="Res0">
+          <task name="task0" priority="1" interval="T#100ms">
+            <pouInstance name="instance0" typeName="main"/>
+          </task>
+        </resource>
+      </configuration>
+    </configurations>
+  </instances>
+  <addData>
+    <data name="openplc.org/library-blocks" handleUnknown="discard">
+      <libraryBlocks>
+        <pou name="GT" pouType="function" extensible="true">
+          <interface>
+            <returnType>
+              <BOOL/>
+            </returnType>
+            <inputVars>
+              <variable name="IN1">
+                <type>
+                  <ANY_ELEMENTARY/>
+                </type>
+              </variable>
+              <variable name="IN2">
+                <type>
+                  <ANY_ELEMENTARY/>
+                </type>
+              </variable>
+            </inputVars>
+          </interface>
+        </pou>
+      </libraryBlocks>
+    </data>
+  </addData>
+</project>

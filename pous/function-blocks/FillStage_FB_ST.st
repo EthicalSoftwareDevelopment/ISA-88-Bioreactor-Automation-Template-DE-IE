@@ -1,0 +1,19 @@
+FUNCTION_BLOCK FillStage_FB_ST
+
+VAR_INPUT
+  Cycle_Active   : BOOL;
+  T1_Level_High  : BOOL;
+END_VAR
+
+VAR_OUTPUT
+  T1_Valve_Inlet : BOOL;
+  Fill_Complete  : BOOL;
+END_VAR
+
+
+FUNCTION_BLOCK FillStage_FB_ST
+
+
+END_FUNCTION_BLOCK
+
+END_FUNCTION_BLOCK
