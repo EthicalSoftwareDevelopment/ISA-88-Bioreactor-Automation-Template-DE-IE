@@ -1,0 +1,42 @@
+# ThermalControl Function Block (ST)
+
+## Purpose
+Controls heating stage of the tank cycle:
+- Energizes heater until setpoint is reached.
+- Signals completion when temperature achieved.
+
+## Inputs
+- `Cycle_Active : BOOL` — overall cycle running.
+- `Mix_Complete : BOOL` — mixing finished.
+- `Tn_Temp_Value : REAL` — current tank temperature.
+- `Tn_Temp_Setpoint : REAL` — desired setpoint.
+
+## Outputs
+- `Heater : BOOL` — heater ON/OFF.
+- `Heat_Complete : BOOL` — flag when heating done.
+
+## Logic (ST)
+```pascal
+FUNCTION_BLOCK HeatManager_FB_ST
+VAR_INPUT
+    Cycle_Active     : BOOL;
+    Mix_Complete     : BOOL;
+    Tn_Temp_Value    : REAL;
+    Tn_Temp_Setpoint : REAL;
+END_VAR
+
+VAR_OUTPUT
+    Heater        : BOOL := FALSE;
+    Heat_Complete : BOOL := FALSE;
+END_VAR
+
+IF Cycle_Active AND Mix_Complete THEN
+    Heater := (Tn_Temp_Value < Tn_Temp_Setpoint);
+    IF Tn_Temp_Value >= Tn_Temp_Setpoint THEN
+        Heat_Complete := TRUE;
+        Heater := FALSE;
+    END_IF;
+ELSE
+    Heater := FALSE;
+    Heat_Complete := FALSE;
+END_IF;

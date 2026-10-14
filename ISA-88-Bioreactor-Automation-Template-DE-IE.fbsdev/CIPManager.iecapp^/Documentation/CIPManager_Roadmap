@@ -1,0 +1,21 @@
+# CIP Manager Roadmap
+
+## Phase 1 – Basic Demo
+- Implement PreFlush, Wash, Rinse, Sterilize stages.
+- Use simple flags and timers.
+- Manual start/stop triggers.
+
+## Phase 2 – Enhanced Safety
+- Add interlocks (tank must be empty, utilities available).
+- Integrate with AlarmHandler for over-temp or no-flow conditions.
+- Ensure CIP cannot run during production cycle.
+
+## Phase 3 – Supervisory Integration
+- Connect CIP completion flag to CycleManager.
+- Trigger CIP automatically after batch completion.
+- Provide HMI/SCADA visualization of CIP stages.
+
+## Phase 4 – Advanced Features
+- Parameterize cleaning times and setpoints.
+- Add recipe management for different cleaning protocols.
+- Log CIP cycles for compliance and reporting.

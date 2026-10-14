@@ -1,0 +1,33 @@
+# CIP Manager
+
+## Purpose
+The **CIP Manager** (Cleaning-in-Place Manager) automates cleaning and sterilization routines for the bioreactor facility.  
+It ensures tanks, piping, and valves are cleaned safely and consistently between production cycles.
+
+## Responsibilities
+- Control inlet/outlet valves for cleaning solution flow.
+- Sequence pumps and heaters for CIP/SIP (Sterilization-in-Place).
+- Monitor sensors (temperature, flow, level) during cleaning.
+- Enforce interlocks to prevent cleaning while production is active.
+- Signal completion of cleaning cycle to supervisory logic.
+
+## Inputs
+- `Start_CIP : BOOL` — trigger to begin cleaning cycle.
+- `Stop_CIP : BOOL` — trigger to abort/reset cycle.
+- `CIP_Temp_Sensor : REAL` — temperature of cleaning solution.
+- `CIP_Flow_Sensor : BOOL` — flow confirmation.
+- `Tank_Empty : BOOL` — ensures tank is empty before CIP.
+
+## Outputs
+- `Valve_CIP_Inlet : BOOL` — opens inlet for cleaning solution.
+- `Valve_CIP_Outlet : BOOL` — opens outlet for discharge.
+- `CIP_Pump : BOOL` — runs cleaning pump.
+- `CIP_Heater : BOOL` — heats cleaning solution.
+- `CIP_Active : BOOL` — cleaning cycle running.
+- `CIP_Complete : BOOL` — cleaning cycle finished.
+
+## Internal Flags
+- `PreFlush_Complete : BOOL`
+- `Wash_Complete : BOOL`
+- `Rinse_Complete : BOOL`
+- `Sterilize_Complete : BOOL`

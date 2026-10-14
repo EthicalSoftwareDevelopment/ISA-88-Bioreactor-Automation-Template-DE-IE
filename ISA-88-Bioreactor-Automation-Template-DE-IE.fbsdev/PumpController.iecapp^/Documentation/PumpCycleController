@@ -1,0 +1,46 @@
+
+---
+
+## 💧 PumpCycle (PumpController_FB_ST.md)
+
+```markdown
+# PumpCycle Function Block (ST)
+
+## Purpose
+Controls discharge pump stage:
+- Runs pump until tank is empty.
+- Signals completion when discharge finished.
+
+## Inputs
+- `Cycle_Active : BOOL` — overall cycle running.
+- `Stage_Ready : BOOL` — discharge stage condition met.
+- `Tn_Level_Low : BOOL` — tank empty sensor.
+
+## Outputs
+- `Pump_Discharge : BOOL` — pump ON/OFF.
+- `Discharge_Complete : BOOL` — flag when discharge done.
+
+## Logic (ST)
+```pascal
+FUNCTION_BLOCK PumpController_FB_ST
+VAR_INPUT
+    Cycle_Active   : BOOL;
+    Stage_Ready    : BOOL;
+    Tn_Level_Low   : BOOL;
+END_VAR
+
+VAR_OUTPUT
+    Pump_Discharge     : BOOL := FALSE;
+    Discharge_Complete : BOOL := FALSE;
+END_VAR
+
+IF Cycle_Active AND Stage_Ready THEN
+    Pump_Discharge := NOT Tn_Level_Low;
+    IF Tn_Level_Low THEN
+        Discharge_Complete := TRUE;
+        Pump_Discharge := FALSE;
+    END_IF;
+ELSE
+    Pump_Discharge := FALSE;
+    Discharge_Complete := FALSE;
+END_IF;

@@ -1,0 +1,9 @@
+{
+	"deviceName": "CODESYS_Control_Win_V3",
+	"identification": {
+		"type": 4096,
+		"id": "0000 0001",
+		"version": "3.5.22.30"
+	},
+	"children": []
+}

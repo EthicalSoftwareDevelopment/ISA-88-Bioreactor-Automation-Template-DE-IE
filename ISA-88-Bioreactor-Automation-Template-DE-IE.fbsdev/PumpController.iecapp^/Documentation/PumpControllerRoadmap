@@ -1,0 +1,19 @@
+# PumpController Supporting FBs
+
+## 1. PumpTimer_FB_ST
+Purpose: Limit pump run time to avoid dry run.
+Inputs: Cycle_Active, Stage_Ready
+Outputs: PumpTimer_Done
+Logic: TON timer instance, starts when Stage_Ready is TRUE.
+
+## 2. PumpAlarm_FB_ST
+Purpose: Raise alarm if pump runs but level doesn’t change.
+Inputs: Pump_Discharge, Tn_Level_Low
+Outputs: Pump_Alarm
+Logic: IF Pump_Discharge AND NOT Tn_Level_Low after timeout THEN Pump_Alarm := TRUE.
+
+## 3. PumpInterlock_FB_ST
+Purpose: Prevent pump from running if heater is ON.
+Inputs: Heater
+Outputs: Pump_Enable
+Logic: Pump_Enable := NOT(Heater).

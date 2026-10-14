@@ -1,0 +1,19 @@
+# ThermalManager Supporting FBs
+
+## 1. ThermalTimer_FB_ST
+Purpose: Run Thermaler for a fixed duration or until setpoint reached.
+Inputs: Cycle_Active, Mix_Complete
+Outputs: ThermalTimer_Done
+Logic: TON timer instance, starts when Mix_Complete is TRUE.
+
+## 2. ThermalAlarm_FB_ST
+Purpose: Raise alarm if temperature exceeds safety threshold.
+Inputs: Tn_Temp_Value, Tn_Temp_Max
+Outputs: Thermal_Alarm
+Logic: IF Tn_Temp_Value > Tn_Temp_Max THEN Thermal_Alarm := TRUE.
+
+## 3. ThermalInterlock_FB_ST
+Purpose: Prevent Thermaler from energizing if pump or mixer is running.
+Inputs: Pump_Discharge, Mixer_Motor
+Outputs: Thermal_Enable
+Logic: Thermal_Enable := NOT(Pump_Discharge OR Mixer_Motor).

@@ -1,0 +1,63 @@
+# TankCycler Application
+
+## Purpose
+The **TankCycler** coordinates the full tank process by chaining together modular function blocks.  
+Stages: **Fill → Mix → Heat → Discharge → CycleComplete**.  
+Each stage has its own function block for clarity, modularity, and maintainability.
+
+---
+
+## Function Blocks
+
+### 1. FillStage
+**Role**: Controls the inlet valve to fill the tank.  
+**Logic**: Opens the inlet until the high‑level sensor is triggered.  
+**Completion Flag**: `Fill_Complete` when tank is full.  
+
+---
+
+### 2. MixStage
+**Role**: Runs the mixer motor to homogenize contents.  
+**Logic**: Activates mixer for a defined duration (typically via TON timer).  
+**Completion Flag**: `Mix_Complete` when mixing is finished.  
+
+---
+
+### 3. HeatStage
+**Role**: Controls the heater to raise tank temperature.  
+**Logic**: Energizes heater until the setpoint is reached.  
+**Completion Flag**: `Heat_Complete` when target temperature achieved.  
+
+---
+
+### 4. DischargeStage
+**Role**: Controls the outlet valve or pump to empty the tank.  
+**Logic**: Opens outlet or runs pump until low‑level sensor is triggered.  
+**Completion Flag**: `Discharge_Complete` when tank is empty.  
+
+---
+
+### 5. CycleComplete
+**Role**: Supervisory block that signals when all stages are finished.  
+**Logic**: Monitors completion flags (`Fill_Complete`, `Mix_Complete`, `Heat_Complete`, `Discharge_Complete`).  
+**Output**: `Cycle_Complete` flag set TRUE when discharge is done.  
+
+---
+
+### 6. TankCycle
+**Role**: Master controller of the sequence.  
+**Logic**:  
+- Starts cycle when `Start_Cycle` is triggered.  
+- Calls each stage FB in order.  
+- Resets flags when `Stop_Cycle` is triggered.  
+**Outputs**: `Cycle_Active`, `Cycle_Complete`, plus actuator signals (valves, mixer, heater).  
+
+---
+
+## ⚡ Summary
+- **FillStage** → fills tank to high level.  
+- **MixStage** → mixes contents for duration.  
+- **HeatStage** → heats to setpoint.  
+- **DischargeStage** → empties tank to low level.  
+- **CycleComplete** → signals end of process.  
+- **TankCycle** → orchestrates all stages in sequence.  
